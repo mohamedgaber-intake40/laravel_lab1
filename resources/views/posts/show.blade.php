@@ -22,10 +22,9 @@
                     <span>Post Creator Info</span>
                 </div>
                 <div class="card-body">
-                <h5 class="card-title">Name:- <span>{{$post->title}}</span></h5>
-                <h5 class="card-title">Email:- <span>{{$post->title}}</span></h5>
-                <h5 class="card-title">Created At:- <span>{{$post->title}}</span></h5>
-                <h5 class="card-title">Descritprion:-</h5>
+                <h5 class="card-title">Name:- <span>{{$post->user->name}}</span></h5>
+                <h5 class="card-title">Email:- <span>{{$post->user->email}}</span></h5>
+                <h5 class="card-title">Created At:- <span>{{$post->user->created_at}}</span></h5>
             </div>
         </div>
        </div>
