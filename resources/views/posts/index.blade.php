@@ -23,9 +23,9 @@
                 <td>{{ $post->description}}</td>
                 <td>{{ $post->user->name}}</td>
                 <td>{{ $post->created_at}}</td>
-                <td><a href="{{route('posts.show',['post'=>$post->id])}}" class="btn btn-danger">View</a></td>
-                <td><a href="{{route('posts.edit',['post'=>$post->id])}}"class="btn btn-danger">Edit</a></td>
-                <td><button type="button" class="btn btn-primary deleteBtn"  data-toggle="modal" data-target="#deleteModal" data-id="{{$post->id}}">Delete</td>
+                <td><a href="{{route('posts.show',['post'=>$post->id])}}" class="btn btn-dark">View</a></td>
+                <td><a href="{{route('posts.edit',['post'=>$post->id])}}"class="btn btn-info">Edit</a></td>
+                <td><button type="button" class="btn btn-danger deleteBtn"  data-toggle="modal" data-target="#deleteModal" data-id="{{$post->id}}">Delete</td>
 
             </tr>      
           @endforeach        
