@@ -10,7 +10,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Title:- <span>{{$post->title}}</span></h5>
                     <h5 class="card-title">Descritprion:-</h5>
-                    <p class="card-text">{{$post->user_id}}</p>
+                    <p class="card-text">{{$post->description}}</p>
                 </div>
             </div>
            </div>

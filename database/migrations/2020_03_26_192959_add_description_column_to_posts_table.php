@@ -15,7 +15,6 @@ class AddDescriptionColumnToPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             $table -> text('description');
-            
         });
     }
 

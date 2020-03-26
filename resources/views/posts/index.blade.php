@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+  <a class="btn btn-info m-5" href='{{route('posts.create')}}'>Create</a>
     <table class="table">
         <thead>
           <tr>
@@ -13,16 +14,16 @@
           </tr>
         </thead>
         <tbody>
-            @foreach ($posts as $post)
-                <tr>
-                    <th scope="row">{{ $post->id }}</th>
-                    <td>{{ $post->title}}</td>
-                    <td>{{ $post->user_id}}</td>
-                    <td>{{ $post->created_at}}</td>
-                    <td><button class="btn btn-danger">delete</button></td>
-                    <td><button class="btn btn-danger">delete</button></td>
-                    <td><button class="btn btn-danger">delete</button></td>
-                </tr>      
+          @foreach ($posts as $post)
+            <tr>
+                <th scope="row">{{ $post->id }}</th>
+                <td>{{ $post->title}}</td>
+                <td>{{ $post->user_id}}</td>
+                <td>{{ $post->created_at}}</td>
+                <td><a href="{{route('posts.show',['post'=>$post->id])}}" class="btn btn-danger">view</a></td>
+                <td><button class="btn btn-danger">delete</button></td>
+                <td><button class="btn btn-danger">delete</button></td>
+            </tr>      
           @endforeach
         </tbody>
       </table>
