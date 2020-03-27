@@ -8,7 +8,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Title</th>
-            <th scope="col">description</th>
+            <th scope="col">slug</th>
             <th scope="col">Posted by</th>
             <th scope="col">Created At</th>
             <th scope="col" colspan="3" class="text-center">Actions</th>
@@ -17,10 +17,11 @@
         <tbody>
           @if (count($posts)>0)
           @foreach ($posts as $post)
+          
             <tr>
                 <th scope="row">{{ $post->id }}</th>
                 <td>{{ $post->title}}</td>
-                <td>{{ $post->description}}</td>
+                <td>{{ $post->slug}}</td>
                 <td>{{ $post->user->name}}</td>
                 <td>{{ $post->created_at}}</td>
                 <td><a href="{{route('posts.show',['post'=>$post->id])}}" class="btn btn-dark">View</a></td>

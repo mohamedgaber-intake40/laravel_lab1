@@ -22,9 +22,9 @@ class PostController extends Controller
         );
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        $request = request();
+        // $request = request();
         $post_id = $request->post;
         $post = Post::find($post_id);
         return view(
@@ -61,9 +61,9 @@ class PostController extends Controller
         return redirect()->route( 'posts.index');
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
-        $request = request();
+        // $request = request();
         $post_id =$request->post;
         $post = Post::find($post_id);
         $users = User::all();
@@ -73,14 +73,16 @@ class PostController extends Controller
         ]);
     }
 
-    public function update()
+    public function update(StorePostRequest $request)
     {
-        $request = request();
+        // $request = request();
         $post_id =$request->post;
+        
         Post::find($post_id )->update([
             'title'      =>$request->title,
             'description'=>$request->description,
             'user_id' =>$request->user_id,
+            
             ]);
             
             return redirect()->route( 'posts.index');
@@ -94,12 +96,11 @@ class PostController extends Controller
         //         'user_id'    =>$request->user_id,
         //       ]);
 
-        public function destroy()
+        public function destroy(Request $request )
         {
-            $request= request();
+            // $request= request();
             $post_id = $request->post_id;
             Post::find($post_id)->delete();
-
             return redirect()->route( 'posts.index');
 
         }
