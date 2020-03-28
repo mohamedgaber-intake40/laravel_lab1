@@ -24,7 +24,7 @@
                 <div class="card-body">
                 <h5 class="card-title">Name:- <span>{{$post->user->name}}</span></h5>
                 <h5 class="card-title">Email:- <span>{{$post->user->email}}</span></h5>
-                <h5 class="card-title">Created At:- <span>{{$post->user->created_at}}</span></h5>
+                <h5 class="card-title">Created At:- <span>{{\Carbon\Carbon::instance($post->user->created_at)->format('l jS \\of F Y h:i:s A')}}</span></h5>
             </div>
         </div>
        </div>
