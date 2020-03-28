@@ -11,7 +11,10 @@ class Post extends Model
 
     /**
      * Return the sluggable configuration array for this model.
-     *
+     *public function post()
+    {
+        return $this->belongsTo('App\Post');
+    }
      * @return array
      */
     public function sluggable()

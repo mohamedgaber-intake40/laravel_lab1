@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Provider;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -46,9 +47,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -56,17 +57,23 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
-        $user = Socialite::driver('github')->user();
-        $found_user = User::where('provider_id', $user->id)->first();
+        $user = Socialite::driver($provider)->user();
+        $found_user = Provider::where(['provider_id'=> $user->id,'provider_name'=>$provider])->first()->user;
         if (!$found_user) {
-            User::create([
-                'provider_id' => $user->id,
+            $new_user=User::create([
                 'email' => $user->email,
                 'name' => $user->name
             ]);
-            $found_user = User::where('provider_id', $user->id)->first();
+            // dd($new_user);
+            Provider::create([
+                'provider_id' => $user->id,
+                'provider_name' => $provider,
+                'token' => $user->token ,
+                'user_id' => $new_user ->id
+            ]);
+            $found_user = $new_user;
         }
         Auth::login($found_user);
         return redirect()->route('posts.index');
