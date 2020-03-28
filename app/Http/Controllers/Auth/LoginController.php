@@ -60,12 +60,16 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
-        $found_user = Provider::where(['provider_id'=> $user->id,'provider_name'=>$provider])->first()->user;
+        // dd($user);
+        $found_user = Provider::where(['provider_id'=> $user->id,'provider_name'=>$provider])->first();
         if (!$found_user) {
-            $new_user=User::create([
+            $new_user=User::where(['email'=> $user->email])->first();
+            // dd($new_user);
+            if(!$new_user)
+            {$new_user=User::create([
                 'email' => $user->email,
                 'name' => $user->name
-            ]);
+            ]);}
             // dd($new_user);
             Provider::create([
                 'provider_id' => $user->id,
@@ -73,9 +77,12 @@ class LoginController extends Controller
                 'token' => $user->token ,
                 'user_id' => $new_user ->id
             ]);
-            $found_user = $new_user;
+            // $found_user = $new_user;
+            Auth::login($new_user);
+            return redirect()->route('posts.index');
         }
-        Auth::login($found_user);
+        // $found_user = $found_user->user;
+        Auth::login($found_user->user);
         return redirect()->route('posts.index');
     }
 }
