@@ -7,7 +7,7 @@ use App\Http\Resources\PostResource;
 use App\Post;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -26,11 +26,12 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
+    
         Post::create(
             [
                 'title'=>$request->title,
                 'description'=>$request->description,
-                'user_id' => $request->user_id
+                'user_id' => Auth::id()
             ]
         );
     }
