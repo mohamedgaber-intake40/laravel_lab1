@@ -1,0 +1,40 @@
+.social a
+{
+    display: flex;
+    width: 50%;
+}
+.social  i:hover
+{
+    color:rgb(63, 138, 128) !important;
+}
+.social a span
+{
+    padding: 10px;
+    border-radius: 9px;
+    color:black;
+}
+
+.social a:hover , a span:hover
+{
+    text-decoration: none;
+    /* color:red; */
+    color: rgb(63, 138, 128) !important;
+}
+
+table tbody ,.modal-body , .modal-footer
+{
+    background-color: rgb(224, 201, 169);
+    border-top: none;
+}
+
+.myform
+{
+    background: rgb(169, 222, 224)!important ;
+    padding: 30px;
+    border-radius: 30px;
+}
+.myform input
+{
+    background-color:;
+}
+

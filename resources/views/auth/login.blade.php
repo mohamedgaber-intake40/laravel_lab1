@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-dark text-white">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body " style="background:#a2b9bc;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -57,8 +57,13 @@
                                     {{ __('Login') }}
                                 </button>
                                 
-                                <a href="/login/github" class="btn btn-dark text-white"> Login with GitHub</a>
-                                <a href="/login/google" class="btn btn-dark text-white"> Login with Google</a>
+                                {{-- <a href="/login/github" class="btn btn-dark text-white"> Login with GitHub</a> --}}
+                                {{-- <a href="/login/google" class="btn btn-dark text-white"> Login with Google</a> --}}
+                                <p class="d-flex justify-content-between social">
+                                    <a href="/login/github"><i class="  fab fa-github-square fa-3x text-dark" ></i><span>Login with Github</span></a>
+                                    <a href="/login/google"><i class="fab fa-google-plus-square fa-3x text-danger d-inline-block"></i><span> Login with Google</span> </a> 
+                                    
+                                </p>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">

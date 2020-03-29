@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form class="m-5" method="POST" action='{{ route('posts.store') }}'>
+    <form class="m-5 myform" method="POST" action='{{ route('posts.store') }}'>
         @csrf
         <div class="form-group">
           <label >Title</label>

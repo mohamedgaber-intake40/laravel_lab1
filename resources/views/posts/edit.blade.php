@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form class="m-5" method="POST" action='{{ route('posts.update',['post'=> $post->id]) }}'>
+    <form class="m-5 myform" method="POST" action='{{ route('posts.update',['post'=> $post->id]) }}'>
         @csrf
         @method('put')
         <div class="form-group">

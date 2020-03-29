@@ -3,8 +3,11 @@
 @section('content')
 <div class="container">
   <a class="btn btn-info my-5 btn-lg" href='{{route('posts.create')}}'>Create</a>
+  {{-- <a class="btn btn-info my-5 btn-lg" href='{{route('posts.create')}}'>show Google Data</a> --}}
+  {{-- <a class="btn btn-info my-5 btn-lg" href='{{route('posts.create')}}'>show Github Data</a> --}}
+
     <table class="table">
-        <thead>
+        <thead class=" thead-dark">
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Title</th>
@@ -14,7 +17,7 @@
             <th scope="col" colspan="3" class="text-center">Actions</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="table-striped">
           @if (count($posts)>0)
           @foreach ($posts as $post)
           
@@ -40,10 +43,10 @@
     <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">confirmation</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+          <div class="modal-header bg-dark">
+            <h5 class="modal-title text-white" id="deleteModalLabel">Confirmation</h5>
+            <button type="button text-white" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="text-white">&times;</span>
             </button>
           </div>
           <div class="modal-body">
