@@ -33,8 +33,22 @@ table tbody ,.modal-body , .modal-footer
     padding: 30px;
     border-radius: 30px;
 }
-.myform input
+.pagination li span ,.page-link
 {
-    background-color:;
+    background-color: #343a40!important;
+    color:white;
+}
+
+.pagination li span:hover ,.page-link:hover
+{
+    background-color: rgb(224, 201, 169)!important;
+    color:black;
+}
+.pagination .active span
+{
+    background-color: rgb(224, 201, 169)!important;
+    color: black !important;
+    border: 1px solid rgb(224, 201, 169)!important;
+
 }
 
