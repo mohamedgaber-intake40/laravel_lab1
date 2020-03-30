@@ -36,7 +36,8 @@ class StorePostRequest extends FormRequest
                 'required',
                 'min:3',
                 Rule::unique('posts')->ignore($this->post)
-            ]
+            ],
+            'avatar' => 'image|mimetypes:image/jpeg,image/png|max:2000'
         ];
     }
 }

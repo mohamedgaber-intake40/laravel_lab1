@@ -4,6 +4,9 @@
         <div class="row justify-content-center">
             <div class="col-8 ">
                 <div class="card mt-5" >
+                    <div>
+                    <img src="/storage/uploaded-images/{{$post->avatar}}" alt="" class="img-fluid">
+                    </div>
                     <div class="card-header bg-dark text-white">
                         <span>Post Info</span>
                     </div>
@@ -30,5 +33,5 @@
        </div>
    </div>
     </div>
-    
+
 @endsection

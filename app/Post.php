@@ -11,7 +11,8 @@ class Post extends Model
 
     /**
      * Return the sluggable configuration array for this model.
-     *public function post()
+     //comment
+     public function post()
     {
         return $this->belongsTo('App\Post');
     }
@@ -29,7 +30,8 @@ class Post extends Model
     protected $fillable=[
         'title',
         'description',
-        'user_id'
+        'user_id',
+        'avatar'
     ];
 
     public function user()

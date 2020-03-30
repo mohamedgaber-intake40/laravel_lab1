@@ -16,7 +16,7 @@ class PostController extends Controller
 
         // $posts = DB::table('posts')->paginate(5);
         // $posts = DB::table('posts')->simplePaginate(15);
-        $posts = Post::paginate(5);
+        $posts = Post::paginate(10);
 
 
         return view(
@@ -55,7 +55,12 @@ class PostController extends Controller
 
     public function store(StorePostRequest $request)
     {
-        Post::create($request->only(['title','description','user_id']));
+
+        $image=$request->file('avatar')->getClientOriginalName();
+        $path=$request->file('avatar')->storeAs('public/uploaded-images',$image);
+        $data=$request->only(['title','description','user_id']);
+        $data['avatar']=$image;
+        Post::create($data);
         return redirect()->route( 'posts.index');
     }
 
@@ -75,18 +80,12 @@ class PostController extends Controller
     {
         // $request = request();
         $post_id =$request->post;
-        Post::find($post_id )->update($request->only(['title','description','user_id']));
-
-        // update([
-        //     'title'      =>$request->title,
-        //     'description'=>$request->description,
-        //     'user_id' =>$request->user_id,
-            
-        //     ]);
-            
+        Post::find($post_id )->update($request->only([
+            'title','description','user_id'
+            ]));
             return redirect()->route( 'posts.index');
             
-        }
+    }
         // DB::table('posts')
         //       ->where('id', $post_id)
         //       ->update([

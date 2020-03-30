@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-    <form class="m-5 myform" method="POST" action='{{ route('posts.store') }}'>
+    <form class="m-5 myform" method="POST" action='{{ route('posts.store') }} ' enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label >Title</label>
@@ -18,6 +18,10 @@
                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="form-group">
+            <label for="" class="">Avatar</label>
+            <input type="file" class="" name="avatar">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
